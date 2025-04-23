@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-    <main>
-        <h1>Weathar App</h1>
-    </main>
+  <main class="container">
+    <h1>🌤️ Weather App</h1>
+    <div class="search-box">
+      <input type="text" id="inputCity" placeholder="Enter city name..." />
+      <button id="weatherBtn">Get Weather</button>
+    </div>
+    <div id="show-weather" class="weather-box">
+      <!-- Weather will be shown here -->
+    </div>
+  </main>
 
-    <script src="./js/script.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 </html>

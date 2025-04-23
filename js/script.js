@@ -9,8 +9,17 @@ weatherBtn.addEventListener('click',()=>{
     const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${inputValue}`;
       
     fetch(url)
-    .then(res=>res.json())
+    .then(res=>{
+        if(!res.ok){
+            throw new Error('Network response was not ok');
+        }
+        return res.json();
+    })
     .then(data => showWeather(data))
+    .catch(err => {
+        console.error('Error fetching weather:', err);
+        alert('Something went wrong! Please check the city name or try again later.');
+    });
 
 })
 
@@ -21,7 +30,7 @@ function showWeather(data){
     <p>Last_update:${data.current.last_updated}</p>
     <p>Cloud:${data.current.cloud}</p>
     <p>Wind_degree:${data.current.wind_degree}</p>
-    <p>Wind_dir${data.current.wind_dir}</p>
+    <p>Wind_dir:${data.current.wind_dir}</p>
     <p>Temp_c:${data.current.temp_c}</p>
     <p>Temp_f:${data.current.temp_f}</p>
     <h2>Name:${data.location.name}</h2>
